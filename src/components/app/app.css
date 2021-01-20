@@ -17,4 +17,10 @@
     background-color: #9b7b77;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
-  }
+}
+.app {
+    background: url('got.jpg') center center no-repeat;
+    background-size: cover;
+    font-size: 16px;
+    height: 1000px;
+}
