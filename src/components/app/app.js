@@ -40,7 +40,8 @@ export default class App extends Component {
     }
 
     return (
-      <Router>
+      <Router
+        basename="/game-of-thrones-spa">
         <div className="app">
           <Container>
             <Header />
