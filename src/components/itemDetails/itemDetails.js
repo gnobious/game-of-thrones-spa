@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './itemDetails.css';
 import ErrorMessage from '../errorMessage';
-//import Spinner from '../spinner';
+import Spinner from '../spinner';
 
 const Field = ({item, field, label}) => {
     return (
@@ -20,7 +20,7 @@ export default class ItemDetails extends Component {
 
     state = {
         item: null,
-        //loading: true,
+        loading: true,
         error: false
     }
 
@@ -34,12 +34,12 @@ export default class ItemDetails extends Component {
         }
     }
 
-    /* onItemDetailsLoaded = (item) => {
+    onItemDetailsLoaded = (item) => {
         this.setState({
             item,
             loading: false
         })
-    } */
+    }
 
     updateItem() {
         const {itemId, getData} = this.props;
@@ -47,14 +47,12 @@ export default class ItemDetails extends Component {
             return;
         }
 
-        /* this.setState({
+        this.setState({
             loading: true
-        }) */
+        })
 
         getData(itemId)
-            .then((item) => {
-                this.setState({item})
-            })
+            .then(this.onItemDetailsLoaded)
             .catch( () => this.onError() )            
     }
 
@@ -65,26 +63,10 @@ export default class ItemDetails extends Component {
         })
     }
 
-    render() {
-
-        if (!this.state.item && this.state.error) {
-            return <ErrorMessage/>
-        } else if (!this.state.item) {
-            return <span className='select-error'>Please select an item</span>
-        }
-        const {item} = this.state;
-        const {name} = item;
-
-        /* if (this.state.loading) {
-            return (
-                <div className="item-details rounded">
-                    <Spinner/>
-                </div>
-            )
-        } */
-
-        return(
-            <div className="item-details rounded">
+    showItem(item) {
+    const {name} = item;
+        return (
+            <>            
                 <h4>{name}</h4>
                 <ul className="list-group list-group-flush">
                     {
@@ -92,8 +74,35 @@ export default class ItemDetails extends Component {
                             return React.cloneElement(child, {item})
                         })
                     }
-                </ul>
-            </div>
-        );
+                </ul>            
+            </>
+        )
+    }
+
+    render() {
+
+        const {item, loading, error} = this.state;
+        const errorMessage = error ? <ErrorMessage/> : null;
+        const spinner = loading ? 
+            <div className="item-details rounded">
+                <Spinner/>
+            </div> : null;
+        const content = !(loading || error) ? this.showItem(item): null;        
+        
+        if (!item) {
+            return(
+                <div className="item-details rounded">
+                    <span className='select-error'>Please select an item</span>
+                </div>
+            );
+        } else {
+            return(
+                <div className="item-details rounded">
+                    {errorMessage}                
+                    {spinner}
+                    {content}
+                </div>
+            );
+        }
     }
 }
