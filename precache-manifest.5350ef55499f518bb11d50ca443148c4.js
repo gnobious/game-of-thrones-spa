@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0810848fe4185b54fc6e4737fa4d6e64",
+    "revision": "c302bcef697b9e71664c8dcf0055283b",
     "url": "/game-of-thrones-spa/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/game-of-thrones-spa/static/css/2.8aa5a7f8.chunk.css"
   },
   {
-    "revision": "4efbf319919cdc97d913",
-    "url": "/game-of-thrones-spa/static/css/main.fc9c2e7f.chunk.css"
+    "revision": "835dd9d69dbf1d1ca988",
+    "url": "/game-of-thrones-spa/static/css/main.67d4456e.chunk.css"
   },
   {
     "revision": "9e78c5cfbd80a75e15b3",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/game-of-thrones-spa/static/js/2.86da1dff.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4efbf319919cdc97d913",
-    "url": "/game-of-thrones-spa/static/js/main.5ac2e646.chunk.js"
+    "revision": "835dd9d69dbf1d1ca988",
+    "url": "/game-of-thrones-spa/static/js/main.e4e61b9c.chunk.js"
   },
   {
     "revision": "51342f2634c99ce4a193",
